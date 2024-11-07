@@ -1,0 +1,24 @@
+File: sample.txt
+Entity type : Number of occurrences
+
+PERSON : 5
+DATE : 3
+PHONE : 4
+ADDRESS : 11
+
+
+Detailed information on identified entities in the file:
+{'Names': ['Broadway St', 'Michael', 'Liam', 'Alice', 'Sophia'], 'Dates': ['22/2/22', '4/9/2025', '09/04/2025'], 'Phones': ['9876543210', '+1 (305) 555-1234', '415-867-5309', '+1 (420) 794-0958'], 'Addresses': ['Seattle', 'New York', '50 Broadway St', 'London', 'WA', '123 Maple St', 'Maple St', 'Cedar St', 'Sophia', 'NY', '987 Cedar St']}
+
+File: sample.txt
+Entity type : Number of occurrences
+
+PERSON : 5
+DATE : 3
+PHONE : 4
+ADDRESS : 11
+
+
+Detailed information on identified entities in the file:
+{'Names': ['Broadway St', 'Alice', 'Sophia', 'Liam', 'Michael'], 'Dates': ['09/04/2025', '4/9/2025', '22/2/22'], 'Phones': ['+1 (420) 794-0958', '9876543210', '415-867-5309', '+1 (305) 555-1234'], 'Addresses': ['987 Cedar St', 'Maple St', '50 Broadway St', '123 Maple St', 'New York', 'WA', 'NY', 'Seattle', 'Sophia', 'Cedar St', 'London']}
+

@@ -62,7 +62,7 @@ def list_files(folder_pattern):
     import glob
     files = glob.glob(folder_pattern)
     logging.debug(f"Listing files with pattern {folder_pattern}: {files}")
-    return files,len(files)
+    return files
 
 # Function to retrieve related words for a given concept using WordNet.
 def get_related_words(concept):

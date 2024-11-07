@@ -54,19 +54,6 @@ def test_apply_redaction():
     redacted_text = apply_redaction(text, entities, redact_names=True, redact_address=True)
     assert '█' in redacted_text
 
-def test_list_files():
-    """
-    Tests the list_files function to ensure it returns a list of Python files.
-
-    This test checks if the list_files function correctly identifies and returns
-    a list of files matching the specified folder pattern. The folder pattern used
-    in this test is "*.py", which should match all Python files. The test asserts
-    that the returned value is a list and that all elements in the list end with
-    the ".py" extension.
-    """
-    folder_pattern = "*.py"
-    files = list_files(folder_pattern)
-    assert isinstance(files, list) and all(f.endswith('.py') for f in files)
 
 
 

@@ -251,7 +251,7 @@ def main(args):
             f. Optionally prints statistics to stderr or stdout based on user preference.
     """
     warnings.filterwarnings("ignore")
-    files_to_process, count= list_files(args.input)
+    files_to_process = list_files(args.input)
 
     # Create output directory if it doesn't exist.
     if not os.path.exists(args.output):
@@ -270,11 +270,11 @@ def main(args):
 
         logging.info(f"File '{file_name}' processed and saved to '{args.output}'")
 
-        # stats_file_path = os.path.join(args.output, f"sample_stats{i}.txt")
+        stats_file_path = os.path.join(args.output, f"sample_stats{i}.txt")
         
-        # stats_output = format_entity_stats(file_name, args, names, dates, phones, addresses)
-        # with open(stats_file_path, "w", encoding="utf-8") as stats_file:
-        #     stats_file.write(stats_output)
+        stats_output = format_entity_stats(file_name, args, names, dates, phones, addresses)
+        with open(stats_file_path, "w", encoding="utf-8") as stats_file:
+            stats_file.write(stats_output)
 
         # if args.stats == "stderr":
         #     sys.stderr.write("Printing stats to stderr\n")
@@ -283,55 +283,6 @@ def main(args):
         #     sys.stdout.write("Printing stats to stdout\n")
         #     sys.stdout.write(stats_output)
 
-        detailed_info = {}
-        if args.names:
-            detailed_info['Names'] = names
-        if args.dates:
-            detailed_info['Dates'] = dates
-        if args.phones:
-            detailed_info['Phones'] = phones
-        if args.address:
-            detailed_info['Addresses'] = addresses
-        
-
-
-        if args.stats == "stderr":
-            sys.stderr.write(f"Printing stats to stderr for file: {file_path}\n")
-            format_string = format_entity_stats(os.path.basename(file_path), args, names, dates, phones, addresses)
-            sys.stderr.write(format_string)
-            sys.stderr.write("\nDetailed information on identified entities in the file:\n")
-            sys.stderr.write(str(detailed_info) + "\n")
-        elif args.stats == "stdout":
-            sys.stdout.write(f"Printing stats to stdout for file: {file_path}\n")
-            format_string = format_entity_stats(os.path.basename(file_path), args, names, dates, phones, addresses)
-            sys.stdout.write(format_string)
-            sys.stdout.write("\nDetailed information on identified entities in the file:\n")
-            sys.stderr.write(str(detailed_info) + "\n")
-        else:
-            log_file = args.stats if args.stats else os.path.join(args.output, "redaction_stats.txt")
-            #print(f"Writing stats to the file: {log_file}")
-            logging.info(f"Writing stats to the file: {log_file}")
-            temp_var=count
-            # print(" temp_var",temp_var)
-            # mode= "w" if temp_var == 1 else "a"
-            mode='a'
-            f = open(log_file, mode, encoding="utf-8")
-            try:
-                # temp_var= temp_var - 1
-                # print("track temp_var",temp_var)
-                format_string = format_entity_stats(os.path.basename(file_path), args, names, dates, phones, addresses)
-                f.write(format_string)
-                f.write("\nDetailed information on identified entities in the file:\n")
-                f.write(str(detailed_info) + "\n")
-                f.write("\n")
-            finally:
-                # f.close()
-                temp_var= temp_var - 1
-                if temp_var == 0:
-                    f.close()
-                    #print("File closed")
-                    
-                
 
         
 
